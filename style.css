@@ -1,0 +1,220 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f9f9ff;
+  background: #020617;
+  overflow-x: hidden;
+}
+
+/* Background gradient + noise */
+
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(135deg, #ff9a9e, #fad0c4 40%, #a1c4fd, #c2e9fb);
+  opacity: 0.25;
+  z-index: -2;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  mix-blend-mode: soft-light;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Page layout */
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.8rem 1.5rem 2rem;
+}
+
+/* Hero */
+
+.hero {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.4);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f1f5ff;
+  background: rgba(15,23,42,0.55);
+  backdrop-filter: blur(8px);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
+  margin-bottom: 1rem;
+}
+
+.timer {
+  display: inline-flex;
+  gap: 0.7rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.85);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+  margin-bottom: 1.2rem;
+}
+
+.time-box {
+  text-align: center;
+  padding: 0.15rem 0.55rem;
+}
+
+.time-box span {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.time-box small {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e2e8ff;
+}
+
+.hero-text {
+  max-width: 560px;
+  font-size: 0.98rem;
+  color: #e5e9ff;
+  margin-bottom: 1.6rem;
+}
+
+/* Button */
+
+.primary-btn {
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff9a9e, #fecfef);
+  color: #151728;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(148, 27, 89, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(148, 27, 89, 0.8);
+}
+
+/* Sections */
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.section-sub {
+  font-size: 0.95rem;
+  color: #e4e7ff;
+}
+
+/* Gallery */
+
+.gallery {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.2rem;
+}
+
+.card {
+  background: rgba(15,23,42,0.92);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 36px rgba(15,23,42,0.95);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.card figcaption {
+  padding: 0.85rem 0.9rem 1rem;
+  font-size: 0.9rem;
+  color: #e8ecff;
+}
+
+/* Letter */
+
+.letter-box {
+  margin-top: 1rem;
+  padding: 1.4rem 1.2rem 1.6rem;
+  border-radius: 22px;
+  background: rgba(15,23,42,0.94);
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 20px 40px rgba(15,23,42,0.98);
+}
+
+.letter-box p + p {
+  margin-top: 0.7rem;
+}
+
+.sign {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #fecdd3;
+}
+
+/* Footer */
+
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  opacity: 0.9;
+}
+
+/* Responsive */
+
+@media (max-width: 720px) {
+  .hero {
+    text-align: center;
+  }
+  .hero-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .timer {
+    justify-content: center;
+  }
+}
