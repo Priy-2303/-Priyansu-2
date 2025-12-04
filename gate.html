@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riddle Gate</title>
+  <link rel="stylesheet" href="gate.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <main class="wrap">
+    <h1>Before You Enter…</h1>
+    <p class="intro">
+      Answer these tiny riddles about us.  
+      When you get all of them right, you'll unlock the whole website.
+    </p>
+
+    <form class="riddle-form" id="riddleForm">
+      <div class="q">
+        <label>Riddle 1: Your nickname I use the most?</label>
+        <input type="text" id="a1" placeholder="type here..." autocomplete="off" />
+      </div>
+
+      <div class="q">
+        <label>Riddle 2: The thing you do the best – overthinking or smiling?</label>
+        <input type="text" id="a2" placeholder="one word" autocomplete="off" />
+      </div>
+
+      <div class="q">
+        <label>Riddle 3: Our class right now?</label>
+        <input type="text" id="a3" placeholder="like: 10" autocomplete="off" />
+      </div>
+
+      <div class="q">
+        <label>Riddle 4: The one word I never want to lose with you?</label>
+        <input type="text" id="a4" placeholder="hint: dosti / friendship" autocomplete="off" />
+      </div>
+
+      <button type="button" class="check-btn" onclick="checkAnswers()">
+        Check answers
+      </button>
+
+      <p id="message" class="msg"></p>
+    </form>
+
+    <div id="options" class="options hidden">
+      <h2>You unlocked everything 🎉</h2>
+      <p>Welcome! Go back to the home page to explore everything.</p>
+      <button class="link-btn" onclick="goHome()">
+        Back to Home
+      </button>
+    </div>
+  </main>
+
+  <script>
+    // Change answers to your real ones (all lower-case, no spaces)
+    const correct = {
+      a1: "panda",        // example nickname
+      a2: "smiling",      // or "overthinking"
+      a3: "10",
+      a4: "friendship"    // or "dosti"
+    };
+
+    function normalise(str) {
+      return str.trim().toLowerCase();
+    }
+
+    function checkAnswers() {
+      const a1 = normalise(document.getElementById("a1").value);
+      const a2 = normalise(document.getElementById("a2").value);
+      const a3 = normalise(document.getElementById("a3").value);
+      const a4 = normalise(document.getElementById("a4").value);
+
+      let score = 0;
+      if (a1 === correct.a1) score++;
+      if (a2 === correct.a2) score++;
+      if (a3 === correct.a3) score++;
+      if (a4 === correct.a4) score++;
+
+      const msg = document.getElementById("message");
+      const options = document.getElementById("options");
+
+      if (score === 4) {
+        msg.textContent = "All correct! Website unlocked ✨";
+        msg.classList.add("ok");
+        options.classList.remove("hidden");
+        // Save unlock status to localStorage
+        localStorage.setItem("riddleSolved", "true");
+      } else {
+        msg.textContent = `${score}/4 correct. Try again 🙂`;
+        msg.classList.remove("ok");
+        options.classList.add("hidden");
+      }
+    }
+
+    function goHome() {
+      window.location.href = "riddle one.html";
+    }
+  </script>
+</body>
+</html>

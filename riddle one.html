@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Us – A Small Puzzle</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="stars"></div>
+
+  <header class="top">
+    <nav class="nav">
+      <a href="riddle one.html".html" class="logo">Us?</a>
+      <div class="links" id="navLinks">
+        <span class="locked-tag">🔒 Locked</span>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <p class="tiny">A friendship on pause, not delete.</p>
+      <h1>Welcome to our little world.</h1>
+      <p class="sub">
+        If you're reading this, it means I still believe "hum" &gt; "ego".
+        Start with a few small riddles about you and me to unlock the rest.
+      </p>
+      <button class="scroll-btn" id="startBtn" onclick="goToGate()">
+        Start the riddles ↓
+      </button>
+    </section>
+  </header>
+
+  <main id="mainContent" style="display: none;">
+    <!-- Riddles section -->
+    <section class="section" id="riddles">
+      <h2>Riddles About You &amp; Me</h2>
+      <p class="section-sub">
+        No tough questions, just small hints of how much you still matter.
+      </p>
+
+      <div class="riddle-grid">
+        <article class="riddle-card">
+          <h3>Riddle 01</h3>
+          <p>
+            She gets angry fast, forgives slowly, but still worries about everyone's
+            small problems. Who is she?
+          </p>
+          <p class="answer">Hint: The person this whole website is for.</p>
+        </article>
+
+        <article class="riddle-card">
+          <h3>Riddle 02</h3>
+          <p>
+            Two people who roast each other 24/7, still remember the same
+            stupid jokes even when they are not talking. Who are they?
+          </p>
+          <p class="answer">Hint: "We" used to call it normal day in class.</p>
+        </article>
+
+        <article class="riddle-card">
+          <h3>Riddle 03</h3>
+          <p>
+            One fights with words, the other with silence, but both miss the
+            old "arey sun na" more than they will admit. Who are they?
+          </p>
+          <p class="answer">Hint: You already know the answer.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- About us section -->
+    <section class="section" id="about">
+      <h2>About You &amp; Me</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>About You</h3>
+          <p>
+            You are the drama, the overthinking, the sudden laughter in the
+            middle of a serious moment – and that's exactly why you are special.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>About Me</h3>
+          <p>
+            I am the one who jokes too much, says stupid things, and sometimes
+            hurts you without meaning to – but also the one who still cares.
+          </p>
+        </div>
+        <div class="about-card wide">
+          <h3>About Us</h3>
+          <p>
+            We are not perfect friends, but we are real.  
+            This small website is just a reminder that even after fights,
+            there is someone who still wants "us" back.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation to other pages -->
+    <section class="section next">
+      <h2>Where To Go Next?</h2>
+      <div class="next-grid">
+        <a href="poems.html" class="next-card">
+          <h3>Page 2 – Poems</h3>
+          <p>All the shayari and lines I have written for you, in one place.</p>
+        </a>
+        <a href="memories.html" class="next-card">
+          <h3>Page 3 – Memories</h3>
+          <p>Small cards with our favourite moments and one honest regret.</p>
+        </a>
+        <a href="sorry.html" class="next-card">
+          <h3>Page 4 – Last Talk Timer</h3>
+          <p>A timer counting from our last proper conversation and a letter.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Made with HTML, CSS and a little hope that we will talk again.
+  </footer>
+
+  <script>
+    // Check if riddles are solved from localStorage
+    function checkUnlock() {
+      const isUnlocked = localStorage.getItem("riddleSolved") === "true";
+      const navLinks = document.getElementById("navLinks");
+      const mainContent = document.getElementById("mainContent");
+      const startBtn = document.getElementById("startBtn");
+
+      if (isUnlocked) {
+        // Show navigation links
+        navLinks.innerHTML = `
+          <a href="poems.html">Poems</a>
+          <a href="memories.html">Memories</a>
+          <a href="sorry.html">Last Talk Timer</a>
+        `;
+        // Show main content
+        mainContent.style.display = "block";
+        // Change button to scroll
+        startBtn.textContent = "Scroll to memories ↓";
+        startBtn.onclick = function() {
+          document.getElementById("riddles").scrollIntoView({behavior:'smooth'});
+        };
+      }
+    }
+
+    function goToGate() {
+      window.location.href = "gate.html";
+    }
+
+    // Run check on page load
+    checkUnlock();
+  </script>
+</body>
+</html>
