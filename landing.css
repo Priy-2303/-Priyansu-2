@@ -1,0 +1,136 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f9fafb;
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+/* Background */
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top left, #a855f7, #020617 70%);
+  opacity: 0.95;
+  z-index: -2;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 15% 25%, #ffffffaa, transparent),
+    radial-gradient(1.5px 1.5px at 85% 75%, #ffffff88, transparent),
+    radial-gradient(1.5px 1.5px at 50% 15%, #ffffff66, transparent);
+  opacity: 0.5;
+  animation: twinkle 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+/* Landing */
+
+.landing {
+  max-width: 500px;
+  width: 100%;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.98);
+  padding: 2.4rem 2rem 2.2rem;
+  border-radius: 28px;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 1);
+  border: 1px solid rgba(168, 85, 247, 0.6);
+  text-align: center;
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.small-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d8b4fe;
+  margin-bottom: 0.8rem;
+}
+
+.card h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.desc {
+  font-size: 0.96rem;
+  color: #e5e7eb;
+  margin-bottom: 1.6rem;
+  line-height: 1.6;
+}
+
+.big-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: #fafafa;
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.7);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  margin-bottom: 1rem;
+}
+
+.big-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(168, 85, 247, 0.9);
+}
+
+.big-btn:active {
+  transform: translateY(-1px);
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* Responsive */
+
+@media (max-width: 540px) {
+  .card {
+    padding: 1.8rem 1.4rem;
+  }
+  .card h1 {
+    font-size: 2rem;
+  }
+}
