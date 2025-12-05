@@ -1,0 +1,240 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f9fbff;
+  background: #020617;
+  overflow-x: hidden;
+}
+
+/* Background */
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at bottom right, #0f766e, #020617 65%);
+  opacity: 0.9;
+  z-index: -2;
+}
+
+.glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.25), transparent 70%);
+  border-radius: 50%;
+  top: 30%;
+  right: -150px;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Top nav */
+
+.top {
+  padding: 1.2rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #14b8a6;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.nav-title {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.spacer {
+  width: 32px;
+}
+
+/* Container */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+
+/* Hero section */
+
+.hero-mem {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.tag-mem {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a7f3d0;
+  margin-bottom: 0.6rem;
+}
+
+.hero-mem h1 {
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle-mem {
+  font-size: 0.95rem;
+  color: #d1fae5;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Memory grid */
+
+.memories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.3rem;
+  margin-bottom: 2.5rem;
+}
+
+.memory-card {
+  background: rgba(15, 23, 42, 0.92);
+  border-radius: 20px;
+  padding: 1.3rem 1.2rem 1.5rem;
+  border: 1px solid rgba(20, 184, 166, 0.4);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.memory-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(20, 184, 166, 0.8);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.98);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.memory-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: #a7f3d0;
+}
+
+.memory-card p {
+  font-size: 0.92rem;
+  color: #e5e7ff;
+  line-height: 1.6;
+}
+
+/* Closing section */
+
+.closing {
+  margin-bottom: 2rem;
+}
+
+.closing-card {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 24px;
+  padding: 1.6rem 1.4rem 1.8rem;
+  border: 1px solid rgba(20, 184, 166, 0.5);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.98);
+  text-align: center;
+}
+
+.closing-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.closing-card p {
+  font-size: 0.94rem;
+  color: #d1fae5;
+  line-height: 1.7;
+}
+
+.closing-card p + p {
+  margin-top: 0.8rem;
+}
+
+.sign {
+  font-style: italic;
+  color: #a7f3d0;
+}
+
+/* Bottom nav */
+
+.nav-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.nav-link {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 184, 166, 0.6);
+  text-decoration: none;
+  text-align: center;
+  color: #d1fae5;
+  background: rgba(15, 23, 42, 0.9);
+  transition: background 0.15s ease, transform 0.15s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  background: rgba(20, 184, 166, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+
+.footer {
+  text-align: center;
+  padding: 1.2rem 1.5rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* Responsive */
+
+@media (max-width: 720px) {
+  .hero-mem {
+    margin-bottom: 2rem;
+  }
+  .memories-grid {
+    gap: 1rem;
+  }
+  .nav-bottom {
+    flex-direction: column;
+  }
+  .nav-link {
+    width: 100%;
+  }
+}
