@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Us – A Small Puzzle</title>
   <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="music.css" />
 </head>
 <body>
   <div class="bg"></div>
@@ -12,7 +13,7 @@
 
   <header class="top">
     <nav class="nav">
-      <a href="riddle one.html" class="logo">Us?</a>
+      <a href="riddle-one.html" class="logo">Us?</a>
       <div class="links" id="navLinks">
         <span class="locked-tag">🔒 Locked</span>
       </div>
@@ -43,7 +44,8 @@
         <article class="riddle-card">
           <h3>Riddle 01</h3>
           <p>
-           🤐🤐
+            She gets angry fast, forgives slowly, but still worries about everyone's
+            small problems. Who is she?
           </p>
           <p class="answer">Hint: The person this whole website is for.</p>
         </article>
@@ -52,7 +54,7 @@
           <h3>Riddle 02</h3>
           <p>
             Two people who roast each other 24/7, still remember the same
-            stupid jokes even when they are not talking. Who are they? 
+            stupid jokes even when they are not talking. Who are they?
           </p>
           <p class="answer">Hint: "We" used to call it normal day in class.</p>
         </article>
@@ -75,7 +77,8 @@
         <div class="about-card">
           <h3>About You</h3>
           <p>
-          🤡🤡
+            You are the drama, the overthinking, the sudden laughter in the
+            middle of a serious moment – and that's exactly why you are special.
           </p>
         </div>
         <div class="about-card">
@@ -116,10 +119,19 @@
     </section>
   </main>
 
-  <footer class="footer">
-  
-  </footer>
+  <footer class="footer"></footer>
 
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music/palak1.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Music Control Button -->
+  <button id="musicToggle" class="music-btn" title="Toggle music" aria-label="Toggle background music">
+    🔇
+  </button>
+
+  <!-- Scripts -->
   <script>
     // Check if riddles are solved from localStorage
     function checkUnlock() {
@@ -152,24 +164,6 @@
     // Run check on page load
     checkUnlock();
   </script>
-
-
-  <!-- Background Music -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="riddle one.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Music Control Button -->
-  <button id="musicToggle" class="music-btn" title="Toggle music" aria-label="Toggle background music">
-    🔇
-  </button>
-</body>
-
+  <script src="music.js"></script>
 </body>
 </html>
-
-
-
-
-
-
