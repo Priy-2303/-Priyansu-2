@@ -3,172 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Us – A Small Puzzle</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .hero {
-      padding: 2rem 0 1rem;
-    }
-    .tiny {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #a5b4fc;
-      margin-bottom: 0.7rem;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      margin-bottom: 0.7rem;
-    }
-    .sub {
-      max-width: 560px;
-      font-size: 0.98rem;
-      color: #e2e8ff;
-      margin-bottom: 1.3rem;
-    }
-
-    /* Quiz */
-    .quiz-container {
-      background: rgba(15, 23, 42, 0.92);
-      padding: 1.5rem;
-      border-radius: 18px;
-      border: 1px solid rgba(129, 140, 248, 0.5);
-      margin-top: 1.4rem;
-    }
-    .quiz-q {
-      margin-bottom: 1rem;
-    }
-    .quiz-q label {
-      display: block;
-      font-size: 0.95rem;
-      margin-bottom: 0.6rem;
-      font-weight: 500;
-    }
-    .quiz-options {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .quiz-opt {
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(129, 140, 248, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.15s ease;
-    }
-    .quiz-opt:hover {
-      background: rgba(79, 70, 229, 0.8);
-      border-color: #4f46e5;
-    }
-    .quiz-opt.active {
-      background: #4f46e5;
-      border-color: #4f46e5;
-    }
-    .quiz-submit {
-      margin-top: 1rem;
-    }
-    .quiz-result {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: 12px;
-      background: rgba(79, 70, 229, 0.2);
-      border: 1px solid #4f46e5;
-      display: none;
-    }
-    .quiz-result.show {
-      display: block;
-    }
-
-    /* Message Form */
-    .msg-form {
-      background: rgba(15, 23, 42, 0.92);
-      padding: 1.5rem;
-      border-radius: 18px;
-      border: 1px solid rgba(129, 140, 248, 0.5);
-      margin-top: 1.4rem;
-    }
-    .msg-form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border-radius: 12px;
-      border: 1px solid rgba(148, 163, 255, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
-      font-family: system-ui;
-      font-size: 0.9rem;
-      resize: vertical;
-      min-height: 80px;
-      outline: none;
-    }
-    .msg-form textarea:focus {
-      border-color: #4f46e5;
-      box-shadow: 0 0 0 1px #4f46e5;
-    }
-    .msg-form button {
-      margin-top: 0.6rem;
-    }
-    .msg-success {
-      margin-top: 0.6rem;
-      font-size: 0.88rem;
-      color: #bbf7d0;
-      display: none;
-    }
-
-    /* Guestbook */
-    .guestbook {
-      background: rgba(15, 23, 42, 0.92);
-      padding: 1.5rem;
-      border-radius: 18px;
-      border: 1px solid rgba(129, 140, 248, 0.5);
-      margin-top: 1.4rem;
-    }
-    .guest-item {
-      padding: 0.8rem;
-      background: rgba(30, 40, 70, 0.8);
-      border-radius: 12px;
-      margin-bottom: 0.8rem;
-      border-left: 3px solid #f97316;
-      font-size: 0.9rem;
-    }
-    .guest-time {
-      font-size: 0.75rem;
-      color: #a5b4fc;
-      margin-top: 0.3rem;
-    }
-  </style>
+  <title>Open Me</title>
+  <link rel="stylesheet" href="landing.css" />
 </head>
 <body>
   <div class="bg"></div>
   <div class="stars"></div>
 
-  <nav class="nav">
-    <a href="index.html" class="logo">Us?</a>
-    <div class="links">
-      <a href="poems.html">Poems</a>
-      <a href="memories.html">Memories</a>
-      <a href="sorry.html">Last Talk Timer</a>
-    </div>
-  </nav>
-
-  <div class="container">
-    <section class="hero">
-      <p class="tiny">A friendship on pause, not delete.</p>
-      <h1>Welcome to our little world.</h1>
-      <p class="sub">
-        If you're reading this, it means I still believe "us" > ego.
+  <main class="landing">
+    <div class="card">
+      <p class="small-text">A message for you</p>
+      <h1>Open Me?</h1>
+      <p class="desc">
+        This website is made just for you. But first, you need to solve a small puzzle.
+        Answer a few riddles about us, and everything will unlock.
       </p>
-    </section>
+      <button class="big-btn" onclick="goToGate()">
+        Open The Puzzle 🔓
+      </button>
+    
+    </div>
+  </main>
 
-    <!-- Quiz Mode -->
-    <section class="section">
-      <h2>How well do I know you? 🧠</h2>
-      <p class="section-sub">Let's see if I still know you better than anyone else.</p>
-      <div class="quiz-container">
-        <div class="quiz-q">
-          <label>1. What's your go-to mood when you're angry?</label>
-          <div class="quiz-options">
-            <button type="button" class="quiz-opt" onclick="selectQuizOpt(this, '1')">Silent treatment</button>
-            <button type="button" class="quiz
+  <script>
+    function goToGate() {
+      window.location.href = "gate.html";
+    }
+  </script>
+</body>
+</html>
