@@ -4,7 +4,122 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Riddle Gate</title>
-  <link rel="stylesheet" href="gate.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .wrap {
+      max-width: 520px;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      padding: 2rem 1.7rem 1.9rem;
+      border-radius: 24px;
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 1);
+      border: 1px solid rgba(129, 140, 248, 0.7);
+    }
+    .wrap h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+    .intro {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      margin-bottom: 1.3rem;
+    }
+    .q {
+      margin-bottom: 1rem;
+    }
+    .q label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+    .q input {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 255, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      outline: none;
+      font-size: 0.9rem;
+    }
+    .q input:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 1px #4f46e5;
+    }
+    .check-btn {
+      margin-top: 0.4rem;
+      width: 100%;
+    }
+    .msg {
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+      color: #fecaca;
+    }
+    .msg.ok {
+      color: #bbf7d0;
+    }
+    .options {
+      margin-top: 1.6rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(148, 163, 255, 0.5);
+    }
+    .options h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    .options p {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 0.8rem;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .link-btn {
+      flex: 1 1 45%;
+      text-align: center;
+      padding: 0.6rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.8);
+      text-decoration: none;
+      font-size: 0.86rem;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .link-btn:hover {
+      background: rgba(79, 70, 229, 0.9);
+      transform: translateY(-1px);
+    }
+    .hidden {
+      display: none;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: #f97316;
+      pointer-events: none;
+      z-index: 999;
+      animation: confetti-fall 3s ease-in forwards;
+    }
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotateZ(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="bg"></div>
@@ -13,31 +128,31 @@
     <h1>Before You Enter…</h1>
     <p class="intro">
       Answer these tiny riddles about us.  
-      When you get all of them right, you'll unlock the whole website.
+      When you get all of them right, the website will unlock.
     </p>
 
     <form class="riddle-form" id="riddleForm">
       <div class="q">
-        <label>Riddle 1: Your nickname I use the most?</label>
+        <label>Riddle 1: My nickname you use most?</label>
         <input type="text" id="a1" placeholder="type here..." autocomplete="off" />
       </div>
 
       <div class="q">
-        <label>Riddle 2: How many Id I am having on insta ?</label>
-        <input type="text" id="a2" placeholder="type here..."  autocomplete="off" />
+        <label>Riddle 2: Your best quality – overthinking or smiling?</label>
+        <input type="text" id="a2" placeholder="one word" autocomplete="off" />
       </div>
 
       <div class="q">
-        <label>Riddle 3: We met in which class ?</label>
-        <input type="text" id="a3"  placeholder="type here..." autocomplete="off" />
+        <label>Riddle 3: What class are we in?</label>
+        <input type="text" id="a3" placeholder="like: 10" autocomplete="off" />
       </div>
 
       <div class="q">
-        <label>Riddle 4: The one word I never want to lose with you?</label>
-        <input type="text" id="a4" placeholder="type here..."  autocomplete="off" />
+        <label>Riddle 4: One word to describe what we had?</label>
+        <input type="text" id="a4" placeholder="hint: dosti" autocomplete="off" />
       </div>
 
-      <button type="button" class="check-btn" onclick="checkAnswers()">
+      <button type="button" class="check-btn btn" onclick="checkAnswers()">
         Check answers
       </button>
 
@@ -45,25 +160,41 @@
     </form>
 
     <div id="options" class="options hidden">
-      <h2>You unlocked everything 🎉</h2>
-      <p>Welcome! Go back to the home page to explore everything.</p>
-      <button class="link-btn" onclick="goHome()">
-        Back to Home
-      </button>
+      <h2>You unlocked it 🎉</h2>
+      <p>Choose where to go:</p>
+      <div class="btn-row">
+        <a href="index.html" class="link-btn">Home</a>
+        <a href="poems.html" class="link-btn">Poems</a>
+        <a href="memories.html" class="link-btn">Memories</a>
+        <a href="sorry.html" class="link-btn">Last Talk</a>
+      </div>
     </div>
   </main>
 
   <script>
-   
     const correct = {
-      a1: "1",        
-      a2: "3",    
-      a3: "9",
-      a4: "friendship"    
+      a1: "panda",
+      a2: "smiling",
+      a3: "10",
+      a4: "dosti"
     };
 
     function normalise(str) {
       return str.trim().toLowerCase();
+    }
+
+    function createConfetti() {
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti";
+          confetti.style.left = Math.random() * 100 + "%";
+          confetti.style.backgroundColor = ["#f97316", "#fb7185", "#fbbf24", "#4f46e5", "#22d3ee"][Math.floor(Math.random() * 5)];
+          confetti.style.delay = Math.random() * 0.3 + "s";
+          document.body.appendChild(confetti);
+          setTimeout(() => confetti.remove(), 3000);
+        }, i * 30);
+      }
     }
 
     function checkAnswers() {
@@ -82,24 +213,16 @@
       const options = document.getElementById("options");
 
       if (score === 4) {
-        msg.textContent = "All correct! Website unlocked ✨";
+        msg.textContent = "All correct! Welcome in.";
         msg.classList.add("ok");
         options.classList.remove("hidden");
-        // Save unlock status to localStorage
-        localStorage.setItem("riddleSolved", "true");
+        createConfetti();
       } else {
         msg.textContent = `${score}/4 correct. Try again 🙂`;
         msg.classList.remove("ok");
         options.classList.add("hidden");
       }
     }
-
-    function goHome() {
-      window.location.href = "riddle one.html";
-    }
   </script>
 </body>
 </html>
-
-
-
