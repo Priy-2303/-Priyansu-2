@@ -54,12 +54,12 @@
   </main>
 
   <script>
-    // Change answers to your real ones (all lower-case, no spaces)
+   
     const correct = {
-      a1: "Palak",        // example nickname
-      a2: "masti with me ",      // or "overthinking"
+      a1: "1",      
+      a2: "so much  ",    
       a3: "9",
-      a4: "friendship"    // or "dosti"
+      a4: "friendship"  
     };
 
     function normalise(str) {
@@ -85,7 +85,7 @@
         msg.textContent = "All correct! Website unlocked ✨";
         msg.classList.add("ok");
         options.classList.remove("hidden");
-        // Save unlock status to localStorage
+  
         localStorage.setItem("riddleSolved", "true");
       } else {
         msg.textContent = `${score}/4 correct. Try again 🙂`;
@@ -101,4 +101,5 @@
 </body>
 </html>
   
+
 
